@@ -37,9 +37,10 @@ partial class Form1
         // 
         AvailabilityLabel.AutoSize = true;
         AvailabilityLabel.BorderStyle = BorderStyle.FixedSingle;
-        AvailabilityLabel.Location = new Point(720, 30);
+        AvailabilityLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+        AvailabilityLabel.Location = new Point(663, 30);
         AvailabilityLabel.Name = "AvailabilityLabel";
-        AvailabilityLabel.Size = new Size(40, 17);
+        AvailabilityLabel.Size = new Size(53, 22);
         AvailabilityLabel.TabIndex = 0;
         AvailabilityLabel.Text = "label1";
         // 
