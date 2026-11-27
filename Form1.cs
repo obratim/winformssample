@@ -24,6 +24,7 @@ public partial class Form1 : Form
     private void SyncCpuBoundWork_Click(object sender, EventArgs e)
     {
         ResultOfSyncCpuBoundWork.Text = "Computing...";
+        this.Refresh();
         var sum = _algorithms.Sum();
         ResultOfSyncCpuBoundWork.Text = $"Sum is {sum:F10}";
     }
