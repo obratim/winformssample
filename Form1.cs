@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace winformssample;
 
 public partial class Form1 : Form
@@ -5,9 +7,11 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
+        _sw.Reset();
     }
 
     private Algorithms _algorithms = new Algorithms();
+    private Stopwatch _sw = new Stopwatch();
 
     private void Timer_Tick(object sender, EventArgs e)
     {
@@ -25,16 +29,20 @@ public partial class Form1 : Form
     {
         ResultOfSyncCpuBoundWork.Text = "Computing...";
         this.Refresh();
+        _sw.Restart();
         var sum = _algorithms.Sum();
-        ResultOfSyncCpuBoundWork.Text = $"Sum is {sum:F10}";
+        _sw.Stop();
+        ResultOfSyncCpuBoundWork.Text = $"Sum is {sum:F10}, duration: {_sw.Elapsed}";
     }
 
     private async void AsyncCpuBoundWork_Click(object sender, EventArgs e)
     {
         ResultOfAsyncCpuBoundWork.Text = "Computing...";
         AsyncCpuBoundWork.Enabled = false;
+        _sw.Restart();
         var sum = await _algorithms.SumAsync();
-        ResultOfAsyncCpuBoundWork.Text = $"Sum is {sum:F10}";
+        _sw.Stop();
+        ResultOfAsyncCpuBoundWork.Text = $"Sum is {sum:F10}, duration: {_sw.Elapsed}";
         AsyncCpuBoundWork.Enabled = true;
     }
 
@@ -42,16 +50,20 @@ public partial class Form1 : Form
     {
         ResultOfSyncIOBoundWork.Text = "Processing...";
         this.Refresh();
+        _sw.Start();
         _algorithms.SaveFiles();
-        ResultOfSyncIOBoundWork.Text = $"Files saved";
+        _sw.Stop();
+        ResultOfSyncIOBoundWork.Text = $"Files saved, duration: {_sw.Elapsed}";
     }
 
     private async void AsyncIOBoundWork_Click(object sender, EventArgs e)
     {
         ResultOfAsyncIOBoundWork.Text = "Processing...";
         AsyncIOBoundWork.Enabled = false;
-        await _algorithms.SaveFilesAsync();
-        ResultOfAsyncIOBoundWork.Text = $"Files saved";
+        _sw.Start();
+        await Task.Run(() => _algorithms.SaveFilesAsync());
+        _sw.Stop();
+        ResultOfAsyncIOBoundWork.Text = $"Files saved, duration: {_sw.Elapsed}";
         AsyncIOBoundWork.Enabled = true;
     }
 }
