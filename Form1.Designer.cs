@@ -102,18 +102,18 @@ partial class Form1
         ResultOfSyncCpuBoundWork.AutoSize = true;
         ResultOfSyncCpuBoundWork.Location = new Point(225, 117);
         ResultOfSyncCpuBoundWork.Name = "ResultOfSyncCpuBoundWork";
-        ResultOfSyncCpuBoundWork.Size = new Size(307, 15);
+        ResultOfSyncCpuBoundWork.Size = new Size(417, 15);
         ResultOfSyncCpuBoundWork.TabIndex = 5;
-        ResultOfSyncCpuBoundWork.Text = "Однопоточное последовательное вычисление суммы";
+        ResultOfSyncCpuBoundWork.Text = "Однопоточное последовательное вычисление суммы квадратных корней";
         // 
         // ResultOfAsyncCpuBoundWork
         // 
         ResultOfAsyncCpuBoundWork.AutoSize = true;
         ResultOfAsyncCpuBoundWork.Location = new Point(225, 158);
         ResultOfAsyncCpuBoundWork.Name = "ResultOfAsyncCpuBoundWork";
-        ResultOfAsyncCpuBoundWork.Size = new Size(210, 15);
+        ResultOfAsyncCpuBoundWork.Size = new Size(320, 15);
         ResultOfAsyncCpuBoundWork.TabIndex = 6;
-        ResultOfAsyncCpuBoundWork.Text = "Многопоточное вычисление суммы";
+        ResultOfAsyncCpuBoundWork.Text = "Многопоточное вычисление суммы квадратных корней";
         // 
         // ResultOfSyncIOBoundWork
         // 

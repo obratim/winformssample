@@ -24,12 +24,12 @@ class Algorithms
     }
 
     /// <summary>
-    /// Простой однопоточный последовательный подсчёт суммы массива
+    /// Простой однопоточный последовательный подсчёт суммы квадратных корней
     /// </summary>
-    public decimal Sum() => _data.Sum();
+    public decimal Sum() => _data.Select(x => (decimal)Math.Sqrt((double)x)).Sum();
 
     /// <summary>
-    /// CPU-bound операция. Многопоточное вычисление суммы значений массива
+    /// CPU-bound операция. Многопоточное вычисление суммы квадратных корней
     /// </summary>
     /// <param name="chunkSize">Сначала будут посчитаны суммы частей размером chunkSize</param>
     /// <returns>Сумма массива</returns>
@@ -48,7 +48,7 @@ class Algorithms
         Task<decimal>[] tasks = // задачи на вычисление сумм в частях
             [
                 ..positions
-                    .Select(position => Task.Run(() => _data.Skip(position).Take(chunkSize).Sum()))
+                    .Select(position => Task.Run(() => _data.Skip(position).Take(chunkSize).Select(x => (decimal)Math.Sqrt((double)x)).Sum()))
             ];
 
         var results = await Task.WhenAll(tasks); // получение промежуточных результатов
