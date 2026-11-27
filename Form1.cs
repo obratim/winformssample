@@ -7,6 +7,8 @@ public partial class Form1 : Form
         InitializeComponent();
     }
 
+    private Algorithms _algorithms = new Algorithms();
+
     private void Timer_Tick(object sender, EventArgs e)
     {
         var now = DateTime.Now;
@@ -21,9 +23,15 @@ public partial class Form1 : Form
 
     private void SyncCpuBoundWork_Click(object sender, EventArgs e)
     {
+        ResultOfSyncCpuBoundWork.Text = "Computing...";
+        var sum = _algorithms.Sum();
+        ResultOfSyncCpuBoundWork.Text = $"Sum is {sum:F10}";
     }
 
     private async void AsyncCpuBoundWork_Click(object sender, EventArgs e)
     {
+        ResultOfAsyncCpuBoundWork.Text = "Computing...";
+        var sum = await _algorithms.SumAsync();
+        ResultOfAsyncCpuBoundWork.Text = $"Sum is {sum:F10}";
     }
 }
