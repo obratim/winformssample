@@ -2,7 +2,7 @@ namespace winformssample;
 
 class Algorithms
 {
-    private const int SIZE = 0x10000000; // размер массива
+    private const int SIZE = 0x4000000; // размер массива
     private const int VALUES_IN_FILE = 1_000_000;
     private readonly decimal[] _data;
 
