@@ -56,24 +56,15 @@ class Algorithms
         for (var i = 0; i < SIZE; i += VALUES_IN_FILE)
         {
             var fileName = FileName(i);
-            System.IO.File.WriteAllLines(fileName, _data.Skip(i).Take(VALUES_IN_FILE).Select(x => x.ToString()));
+            System.IO.File.WriteAllText(FileName(i), FileContent(i));
         }
     }
 
     public async Task SaveFilesAsync()
     {
-        List<Task> tasks = new();
         for (var i = 0; i < SIZE; i += VALUES_IN_FILE)
         {
-            //tasks.Add(System.IO.File.WriteAllTextAsync(FileName(i), FileContent(i)));
-            tasks.Add(new Task(async () => {
-                var fileName = FileName(i);
-                using var writer = new System.IO.StreamWriter(fileName);
-                for (var j = 0; j < VALUES_IN_FILE && i + j < SIZE; ++j)
-                    await writer.WriteLineAsync(_data[i + j].ToString());
-            }));
+            await System.IO.File.WriteAllTextAsync(FileName(i), FileContent(i));
         }
-
-        Task.WaitAll(tasks);
     }
 }
