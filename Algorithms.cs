@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace winformssample;
 
 class Algorithms
@@ -56,7 +58,7 @@ class Algorithms
         return results.Sum(); // итоговая сумма всего массива
     }
 
-    private static string FileName(int i) => $"Values {i} - {i + VALUES_IN_FILE - 1}.txt";
+    private static string FileName(int i) => System.IO.Path.Combine(System.IO.Path.GetDirectoryName(typeof(Program).Assembly.Location), $"Values {i} - {i + VALUES_IN_FILE - 1}.txt");
     private string FileContent(int i) => string.Join('\n', _data.Skip(i).Take(VALUES_IN_FILE));
 
     /// <summary>
