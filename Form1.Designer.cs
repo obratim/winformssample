@@ -65,6 +65,7 @@ partial class Form1
         SyncCpuBoundWork.TabIndex = 1;
         SyncCpuBoundWork.Text = "SyncCpuBoundWork";
         SyncCpuBoundWork.UseVisualStyleBackColor = true;
+        SyncCpuBoundWork.Click += SyncCpuBoundWork_Click;
         // 
         // AsyncCpuBoundWork
         // 

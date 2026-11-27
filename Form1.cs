@@ -18,4 +18,9 @@ public partial class Form1 : Form
             , (byte)((colorModifier - 90) % 100 + 20)
         );
     }
+
+    private void SyncCpuBoundWork_Click(object sender, EventArgs e)
+    {
+
+    }
 }
