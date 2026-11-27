@@ -85,6 +85,7 @@ partial class Form1
         SyncIOBoundWork.TabIndex = 3;
         SyncIOBoundWork.Text = "SyncIOBoundWork";
         SyncIOBoundWork.UseVisualStyleBackColor = true;
+        SyncIOBoundWork.Click += SyncIOBoundWork_Click;
         // 
         // AsyncIOBoundWork
         // 
@@ -94,6 +95,7 @@ partial class Form1
         AsyncIOBoundWork.TabIndex = 4;
         AsyncIOBoundWork.Text = "AsyncIOBoundWork";
         AsyncIOBoundWork.UseVisualStyleBackColor = true;
+        AsyncIOBoundWork.Click += AsyncIOBoundWork_Click;
         // 
         // ResultOfSyncCpuBoundWork
         // 

@@ -32,7 +32,26 @@ public partial class Form1 : Form
     private async void AsyncCpuBoundWork_Click(object sender, EventArgs e)
     {
         ResultOfAsyncCpuBoundWork.Text = "Computing...";
+        AsyncCpuBoundWork.Enabled = false;
         var sum = await _algorithms.SumAsync();
         ResultOfAsyncCpuBoundWork.Text = $"Sum is {sum:F10}";
+        AsyncCpuBoundWork.Enabled = true;
+    }
+
+    private void SyncIOBoundWork_Click(object sender, EventArgs e)
+    {
+        ResultOfSyncIOBoundWork.Text = "Processing...";
+        this.Refresh();
+        _algorithms.SaveFiles();
+        ResultOfSyncIOBoundWork.Text = $"Files saved";
+    }
+
+    private async void AsyncIOBoundWork_Click(object sender, EventArgs e)
+    {
+        ResultOfAsyncIOBoundWork.Text = "Processing...";
+        AsyncIOBoundWork.Enabled = false;
+        await _algorithms.SaveFilesAsync();
+        ResultOfAsyncIOBoundWork.Text = $"Files saved";
+        AsyncIOBoundWork.Enabled = true;
     }
 }
