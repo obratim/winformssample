@@ -13,9 +13,9 @@ public partial class Form1 : Form
         AvailabilityLabel.Text = $"{now:HH:mm:ss.f}";
         var colorModifier = now.Ticks / 300_000;
         AvailabilityLabel.ForeColor = Color.FromArgb(
-            (byte)((colorModifier - 1) % 100)
-            ,(byte)((colorModifier - 70) % 100)
-            ,(byte)((colorModifier - 90) % 100)
+            (byte)((colorModifier - 1) % 100 + 20)
+            , (byte)((colorModifier - 70) % 100 + 20)
+            , (byte)((colorModifier - 90) % 100 + 20)
         );
     }
 }
