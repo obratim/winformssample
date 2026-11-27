@@ -21,6 +21,9 @@ public partial class Form1 : Form
 
     private void SyncCpuBoundWork_Click(object sender, EventArgs e)
     {
+    }
 
+    private async void AsyncCpuBoundWork_Click(object sender, EventArgs e)
+    {
     }
 }

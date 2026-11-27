@@ -75,6 +75,7 @@ partial class Form1
         AsyncCpuBoundWork.TabIndex = 2;
         AsyncCpuBoundWork.Text = "AsyncCpuBoundWork";
         AsyncCpuBoundWork.UseVisualStyleBackColor = true;
+        AsyncCpuBoundWork.Click += AsyncCpuBoundWork_Click;
         // 
         // SyncIOBoundWork
         // 
