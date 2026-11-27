@@ -102,36 +102,36 @@ partial class Form1
         ResultOfSyncCpuBoundWork.AutoSize = true;
         ResultOfSyncCpuBoundWork.Location = new Point(225, 117);
         ResultOfSyncCpuBoundWork.Name = "ResultOfSyncCpuBoundWork";
-        ResultOfSyncCpuBoundWork.Size = new Size(162, 15);
+        ResultOfSyncCpuBoundWork.Size = new Size(307, 15);
         ResultOfSyncCpuBoundWork.TabIndex = 5;
-        ResultOfSyncCpuBoundWork.Text = "ResultOfSyncCpuBoundWork";
+        ResultOfSyncCpuBoundWork.Text = "Однопоточное последовательное вычисление суммы";
         // 
         // ResultOfAsyncCpuBoundWork
         // 
         ResultOfAsyncCpuBoundWork.AutoSize = true;
         ResultOfAsyncCpuBoundWork.Location = new Point(225, 158);
         ResultOfAsyncCpuBoundWork.Name = "ResultOfAsyncCpuBoundWork";
-        ResultOfAsyncCpuBoundWork.Size = new Size(169, 15);
+        ResultOfAsyncCpuBoundWork.Size = new Size(210, 15);
         ResultOfAsyncCpuBoundWork.TabIndex = 6;
-        ResultOfAsyncCpuBoundWork.Text = "ResultOfAsyncCpuBoundWork";
+        ResultOfAsyncCpuBoundWork.Text = "Многопоточное вычисление суммы";
         // 
         // ResultOfSyncIOBoundWork
         // 
         ResultOfSyncIOBoundWork.AutoSize = true;
         ResultOfSyncIOBoundWork.Location = new Point(225, 199);
         ResultOfSyncIOBoundWork.Name = "ResultOfSyncIOBoundWork";
-        ResultOfSyncIOBoundWork.Size = new Size(152, 15);
+        ResultOfSyncIOBoundWork.Size = new Size(306, 15);
         ResultOfSyncIOBoundWork.TabIndex = 7;
-        ResultOfSyncIOBoundWork.Text = "ResultOfSyncIOBoundWork";
+        ResultOfSyncIOBoundWork.Text = "Синхронная, блокирующая запись значений в файлы";
         // 
         // ResultOfAsyncIOBoundWork
         // 
         ResultOfAsyncIOBoundWork.AutoSize = true;
         ResultOfAsyncIOBoundWork.Location = new Point(225, 240);
         ResultOfAsyncIOBoundWork.Name = "ResultOfAsyncIOBoundWork";
-        ResultOfAsyncIOBoundWork.Size = new Size(159, 15);
+        ResultOfAsyncIOBoundWork.Size = new Size(325, 15);
         ResultOfAsyncIOBoundWork.TabIndex = 8;
-        ResultOfAsyncIOBoundWork.Text = "ResultOfAsyncIOBoundWork";
+        ResultOfAsyncIOBoundWork.Text = "Асинхронная, неблокирующая запись значений в файлы";
         // 
         // Form1
         // 
