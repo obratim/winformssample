@@ -18,10 +18,17 @@ class Algorithms
     {
         var threads = (SIZE / chunckSize) + ((SIZE % chunckSize) > 0 ? 1 : 0); // считаем сколько потоков понадобится
 
-        var tasks = Enumerable
-            .Range(0, threads)
-            .Select(i => Task.Run(() => _data.Skip(i * chunckSize).Take(chunckSize).Sum()))
-            ;
+        int[] positions =
+            [
+                ..Enumerable
+                .Range(0, threads)
+                .Select(i => i * chunckSize)
+            ];
+        Task<decimal>[] tasks =
+            [
+                ..positions
+                    .Select(position => Task.Run(() => _data.Skip(position).Take(chunckSize).Sum()))
+            ];
 
         var results = await Task.WhenAll(tasks);
         return results.Sum();
