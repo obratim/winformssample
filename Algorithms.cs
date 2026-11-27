@@ -23,19 +23,27 @@ class Algorithms
             });
     }
 
+    /// <summary>
+    /// Простой однопоточный последовательный подсчёт суммы массива
+    /// </summary>
     public decimal Sum() => _data.Sum();
 
+    /// <summary>
+    /// CPU-bound операция. Многопоточное вычисление суммы значений массива
+    /// </summary>
+    /// <param name="chunkSize">Сначала будут посчитаны суммы частей размером chunkSize</param>
+    /// <returns>Сумма массива</returns>
     public async Task<decimal> SumAsync(int chunkSize = SIZE / 4)
     {
-        // посчитаем сумму в частях массива, затем сумму сумм
+        // посчитаем сумму в частях массива, затем сумму сумм чтобы получить итог
 
         var threads = (SIZE / chunkSize) + ((SIZE % chunkSize) > 0 ? 1 : 0); // считаем сколько потоков понадобится
 
         int[] positions = // позиции в массиве, начиная с которой будет посчитана сумма chunckSize чисел
             [
                 ..Enumerable
-                .Range(0, threads)
-                .Select(i => i * chunkSize)
+                    .Range(0, threads)
+                    .Select(i => i * chunkSize)
             ];
         Task<decimal>[] tasks = // задачи на вычисление сумм в частях
             [
@@ -51,6 +59,9 @@ class Algorithms
     private static string FileName(int i) => $"Values {i} - {i + VALUES_IN_FILE - 1}.txt";
     private string FileContent(int i) => string.Join('\n', _data.Skip(i).Take(VALUES_IN_FILE));
 
+    /// <summary>
+    /// Блокирующее сохранение данных в файлы
+    /// </summary>
     public void SaveFiles()
     {
         for (var i = 0; i < SIZE; i += VALUES_IN_FILE)
@@ -60,6 +71,9 @@ class Algorithms
         }
     }
 
+    /// <summary>
+    /// IO-bound операция. Асинхронное, неблокирующие сохранение данных в файлы.
+    /// </summary>
     public async Task SaveFilesAsync()
     {
         for (var i = 0; i < SIZE; i += VALUES_IN_FILE)
@@ -67,4 +81,6 @@ class Algorithms
             await System.IO.File.WriteAllTextAsync(FileName(i), FileContent(i));
         }
     }
+
+    
 }
