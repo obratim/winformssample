@@ -50,7 +50,7 @@ public partial class Form1 : Form
     {
         ResultOfSyncIOBoundWork.Text = "Processing...";
         this.Refresh();
-        _sw.Start();
+        _sw.Restart();
         _algorithms.SaveFiles();
         _sw.Stop();
         ResultOfSyncIOBoundWork.Text = $"Files saved, duration: {_sw.Elapsed}";
@@ -60,7 +60,7 @@ public partial class Form1 : Form
     {
         ResultOfAsyncIOBoundWork.Text = "Processing...";
         AsyncIOBoundWork.Enabled = false;
-        _sw.Start();
+        _sw.Restart();
         await Task.Run(() => _algorithms.SaveFilesAsync());
         _sw.Stop();
         ResultOfAsyncIOBoundWork.Text = $"Files saved, duration: {_sw.Elapsed}";
